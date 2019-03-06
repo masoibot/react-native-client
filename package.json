@@ -14,7 +14,7 @@
     "react-native": "0.57.4",
     "react-native-fbsdk": "^0.8.0",
     "react-native-gesture-handler": "^1.0.10",
-    "react-native-windows": "0.57.0-rc.0",
+    "react-native-windows": "0.57.0-rc.5",
     "react-navigation": "^3.0.8"
   },
   "devDependencies": {

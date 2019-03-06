@@ -1,4 +1,4 @@
-using ReactNative;
+﻿using ReactNative;
 
 namespace MaSoiBot
 {

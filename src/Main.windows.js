@@ -16,10 +16,10 @@ import {
 
 
 import Login from './Screen/Login';
-// import Chat from './Screen/Chat';
-import ChatList from './Screen/ChatList';
+import Chat from './Screen/Chat';
+import Tabs from './MainTab/Tab';
+import ChatList from './Screen/ChatList'
 // import NavBar from './NavBar';
-// import Tabs from './MainTab/Tab';
 
 class AuthLoadingScreen extends Component {
   constructor(props) {
@@ -39,29 +39,25 @@ class AuthLoadingScreen extends Component {
     this.renderRoute = this.renderRoute.bind(this);
   }
   onStartApp = async () => {
-    // await AsyncStorage.setItem('userID', 'duyd');
-    // await AsyncStorage.setItem('roomID', '25093309');
-    const userID = await AsyncStorage.getItem('userID');
+    await AsyncStorage.setItem('userID', 'duy');
+    await AsyncStorage.setItem('avatar', 'https://sites.google.com/site/masoibot/user/user.png');
+    await AsyncStorage.setItem('name', 'Khách');
+    // const userID = await AsyncStorage.getItem('userID');
     // this.stateNavigation.navigate(userID ? 'App' : 'Auth');
   }
   renderRoute() {
-    switch (this.state.routeName) {
-      case 'App': return <ChatList navigation={this.stateNavigation} />;
-      case 'AuthLoading': return <Text>AuthLoadingScreen</Text>;
-      case 'Auth': return <Login navigation={this.stateNavigation} />;
-      case 'Chat': return <Text>Chat</Text>;
-      default: return <Text>default route</Text>;
-    }
+
   }
 
   render() {
-    return (
-      <View>
-        {
-          this.renderRoute()
-        }
-      </View>
-    )
+    switch (this.state.routeName) {
+      // case 'App': return <Tabs/>;
+      case 'App': return <ChatList navigation={this.stateNavigation} />
+      case 'AuthLoading': return <View><Text>AuthLoadingScreen</Text></View>;
+      case 'Auth': return <Login navigation={this.stateNavigation} />;
+      case 'Chat': return <Chat navigation={this.stateNavigation} />;
+      default: return <View><Text>default route</Text></View>;
+    }
   }
 }
 export default AuthLoadingScreen
